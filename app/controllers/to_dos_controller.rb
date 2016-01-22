@@ -24,6 +24,13 @@ class ToDosController < ApplicationController
     end
   end
 
+  # DELETE /todos/1.json
+  def destroy
+    @todo.destroy
+      head :no_content
+  end
+
+
 private
 
   def to_do_params
