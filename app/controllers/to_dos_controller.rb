@@ -4,6 +4,11 @@ class ToDosController < ApplicationController
     render json: ToDo.all
   end
 
+  # GET /todos/1.json
+  def show
+    @to_do = ToDo.find(params[:id])
+  end
+
   # POST /todos.json
   def create
     @to_do = ToDo.new(to_do_params)
@@ -26,7 +31,7 @@ class ToDosController < ApplicationController
 
   # DELETE /todos/1.json
   def destroy
-    @todo.destroy
+    @to_do.destroy
       head :no_content
   end
 
