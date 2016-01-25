@@ -3,7 +3,7 @@ class ToDosController < ApplicationController
 
   def index
     @todos = ToDo.all
-    render json: { todos: @todos }
+    render json: { todos: @todos.as_json }
   end
 
   # POST /todos.json
