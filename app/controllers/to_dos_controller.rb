@@ -32,7 +32,7 @@ class ToDosController < ApplicationController
   # DELETE /todos/1.json
   def destroy
     @to_do.destroy
-    head :no_content
+    render json: {}
   end
 
 private
