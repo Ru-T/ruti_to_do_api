@@ -1,25 +1,25 @@
 class ToDosController < ApplicationController
-  before_action :set_todo, only: [:update, :destroy]
+  before_action :set_to_do, only: [:update, :destroy]
 
   def index
-    @todos = ToDo.all
-    render json: { todos: @todos.as_json }
+    @to_dos = ToDo.all
+    render json: { todos: @to_dos.as_json }
   end
 
   # POST /todos.json
   def create
-    @todo = ToDo.new(to_do_params)
-    if @todo.save
-      render json: { todo: @todo }
+    @to_do = ToDo.new(to_do_params)
+    if @to_do.save
+      render json: { todo: @to_do.as_json }
     else
-      render json: @todo.errors, status: :unprocessable_entity
+      render json: @to_do.errors, status: :unprocessable_entity
     end
   end
 
-  # PATCH/PUT /todos/1.json
+  # PUT /todos/1.json
   def update
-    if @todo.update(to_do_params)
-      render json: { todo: @todo }
+    if @to_do.update(to_do_params)
+      render json: { todo: @to_do.as_json }
     else
       render json: @example.errors, status: :unprocessable_entity
     end
@@ -33,7 +33,7 @@ class ToDosController < ApplicationController
 
 private
 
-  def set_todo
+  def set_to_do
     @to_do = ToDo.find(params[:id])
   end
 
