@@ -6,7 +6,6 @@ class ToDosController < ApplicationController
     render json: { todos: @to_dos.as_json }
   end
 
-  # POST /todos.json
   def create
     @to_do = ToDo.new(to_do_params)
     if @to_do.save
@@ -16,16 +15,15 @@ class ToDosController < ApplicationController
     end
   end
 
-  # PUT /todos/1.json
   def update
-    if @to_do.update(to_do_params)
+    @todo.update(to_do_params)
+    if @to_do.save
       render json: { todo: @to_do.as_json }
     else
       render json: @example.errors, status: :unprocessable_entity
     end
   end
 
-  # DELETE /todos/1.json
   def destroy
     @to_do.destroy
     render json: {}
