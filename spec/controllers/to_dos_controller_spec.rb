@@ -32,19 +32,18 @@ RSpec.describe ToDosController, type: :controller do
       end
     end
 
-    # describe "PUT /to_dos/:id.json" do
-    #   before do
-    #     put :update, to_do: ({ id: 1, title: "Brand new title", is_completed: true })
-    #   end
-    #   it "updates a new to_do" do
-    #     expect(ToDo.where(id: 1)).to include "Brand new title"
-    #     expect(response).to include
-    #       ({
-    #         "title": "Brand new title",
-    #         "is_completed": true
-    #         })
-    #   end
-    # end
+    describe "PUT /to_dos/:id.json" do
+      before do
+        put :update, id: to_do.id, to_do: { title: "Brand new title", is_completed: false }
+      end
+      it "updates a new to_do" do
+        expect(ToDo.where(id: to_do.id)).to include
+          ({
+            "title": "Brand new title",
+            "is_completed": false
+            })
+      end
+    end
 
     describe "DELETE /to_dos/:id.json" do
       before do

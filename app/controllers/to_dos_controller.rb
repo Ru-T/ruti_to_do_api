@@ -16,7 +16,7 @@ class ToDosController < ApplicationController
   end
 
   def update
-    @todo.update(to_do_params)
+    @to_do.update(to_do_params)
     if @to_do.save
       render json: { todo: @to_do.as_json }
     else
