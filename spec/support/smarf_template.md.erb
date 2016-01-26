@@ -1,0 +1,13 @@
+
+## <%= request.method %> <%= request.path %>
+
+| Param | Value |
+<%= table_entries = []
+  request.params.except(:controller, :action, :format).each do |param, value|
+    table_entries << "| #{param} | #{value} |"
+  end
+  table_entries.join("\n") %>
+
+Response: <%= response.status %>
+
+<%= JSON.pretty_generate(JSON.parse(response.body)) %>
