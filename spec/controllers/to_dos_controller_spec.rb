@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe ToDosController, type: :controller do
 
-    let(:to_do) { FactoryGirl.create(:to_do) }
+    let!(:to_do) { FactoryGirl.create(:to_do) }
     let(:json) { JSON.parse(response.body) }
 
     describe "GET /to_dos.json" do

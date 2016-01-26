@@ -1,24 +1,58 @@
-GET: /to_dos
 
-Params:
-{}
-Response:
-{"to_dos":[]}
-POST: /to_dos
+## GET /to_dos
 
-Params:
-{"to_do"=>{"title"=>"New title", "is_completed"=>true}}
-Response:
-{"to_do":{"id":1,"title":"New title","is_completed":true}}
-PUT: /to_dos/1
+| Param | Value |
 
-Params:
-{"to_do"=>{"title"=>"Brand new title", "is_completed"=>false}, "id"=>"1"}
-Response:
-{"to_do":{"id":1,"title":"Brand new title","is_completed":false}}
-DELETE: /to_dos/1
 
-Params:
-{"id"=>"1"}
-Response:
-{}
+Response: 200
+
+{
+  "to_dos": [
+    {
+      "id": 1,
+      "title": "I have to do this thang",
+      "is_completed": true
+    }
+  ]
+}
+
+## POST /to_dos
+
+| Param | Value |
+| to_do | {"title"=>"New title", "is_completed"=>true} |
+
+Response: 200
+
+{
+  "to_do": {
+    "id": 2,
+    "title": "New title",
+    "is_completed": true
+  }
+}
+
+## PUT /to_dos/1
+
+| Param | Value |
+| to_do | {"title"=>"Brand new title", "is_completed"=>false} |
+| id | 1 |
+
+Response: 200
+
+{
+  "to_do": {
+    "id": 1,
+    "title": "Brand new title",
+    "is_completed": false
+  }
+}
+
+## DELETE /to_dos/1
+
+| Param | Value |
+| id | 1 |
+
+Response: 200
+
+{
+}
