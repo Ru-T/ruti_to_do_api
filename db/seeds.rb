@@ -1,7 +1,3 @@
-10.times do
-  ToDo.create(title: Faker::Lorem.sentence, is_completed: true)
-end
-
-10.times do
-  ToDo.create(title: Faker::Lorem.sentence, is_completed: false)
+20.times do
+  ToDo.create(title: Faker::Lorem.sentence, is_completed: [true, false].sample)
 end
