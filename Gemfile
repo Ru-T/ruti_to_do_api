@@ -38,6 +38,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'faker'
   gem "factory_girl_rails", "~> 4.0"
+  gem 'active_model_serializers'
 end
 
 group :development do

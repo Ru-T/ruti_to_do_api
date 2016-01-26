@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe ToDosController, type: :controller do
 
-    let(:to_do) {FactoryGirl.create(:to_do)}
+    let(:to_do) { FactoryGirl.create(:to_do) }
 
     describe "GET /to_dos.json" do
       before do
@@ -10,7 +10,7 @@ RSpec.describe ToDosController, type: :controller do
       end
       it "returns all to_dos in json format" do
         expect(response.content_type).to eq "application/json"
-        expect(response).to include
+        expect(JSON.parse(response.body)).to include
           ({
             "title": "I have to do this thang",
             "is_completed": true
@@ -37,7 +37,8 @@ RSpec.describe ToDosController, type: :controller do
         put :update, id: to_do.id, to_do: { title: "Brand new title", is_completed: false }
       end
       it "updates a new to_do" do
-        expect(ToDo.where(id: to_do.id)).to include
+        # expect(to_do.title).to eq "Brand new title"
+        expect(response).to include
           ({
             "title": "Brand new title",
             "is_completed": false
