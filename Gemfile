@@ -39,6 +39,8 @@ group :development, :test do
   gem 'faker'
   gem "factory_girl_rails", "~> 4.0"
   gem 'active_model_serializers'
+  # Use smarfdoc for API documentation
+  gem 'smarf_doc', github: 'RickCarlino/smarf_doc'
 end
 
 group :development do

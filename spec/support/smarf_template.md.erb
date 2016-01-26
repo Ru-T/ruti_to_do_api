@@ -1,0 +1,6 @@
+<%= request.method %>: <%= request.path %>
+
+Params:
+<%= request.params.except(:controller, :action, :format) %>
+Response:
+<%= response.body %>
