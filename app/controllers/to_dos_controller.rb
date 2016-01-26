@@ -3,13 +3,13 @@ class ToDosController < ApplicationController
 
   def index
     @to_dos = ToDo.all
-    render json: { todos: @to_dos.as_json }
+    render json: @to_dos
   end
 
   def create
     @to_do = ToDo.new(to_do_params)
     if @to_do.save
-      render json: { todo: @to_do.as_json }
+      render json: @to_do
     else
       render json: @to_do.errors, status: :unprocessable_entity
     end
@@ -18,7 +18,7 @@ class ToDosController < ApplicationController
   def update
     @to_do.update(to_do_params)
     if @to_do.save
-      render json: { todo: @to_do.as_json }
+      render json: @to_do
     else
       render json: @to_do.errors, status: :unprocessable_entity
     end
