@@ -20,7 +20,7 @@ class ToDosController < ApplicationController
     if @to_do.save
       render json: { todo: @to_do.as_json }
     else
-      render json: @example.errors, status: :unprocessable_entity
+      render json: @to_do.errors, status: :unprocessable_entity
     end
   end
 
