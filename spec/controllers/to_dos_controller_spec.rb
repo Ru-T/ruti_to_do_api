@@ -20,12 +20,13 @@ RSpec.describe ToDosController, type: :controller do
 
     describe "POST /to_dos.json" do
       before do
-        post :create, to_do: { title: "New title", is_completed: true }
+        request = post :create, to_do: { title: "New title", is_completed: true }
       end
       it "creates a new to_do" do
         expect(ToDo.last.title).to eq "New title"
         expect(json["to_do"]["title"]).to eq "New title"
         expect(json["to_do"]["is_completed"]).to eq true
+        expect { request }.to change{ ToDo.count }.by(1)
       end
     end
 

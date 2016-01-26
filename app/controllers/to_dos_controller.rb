@@ -16,8 +16,7 @@ class ToDosController < ApplicationController
   end
 
   def update
-    @to_do.update(to_do_params)
-    if @to_do.save
+    if @to_do.update(to_do_params)
       render json: @to_do
     else
       render json: @to_do.errors
