@@ -37,7 +37,6 @@ RSpec.describe ToDosController, type: :controller do
         put :update, id: to_do.id, to_do: { title: "Brand new title", is_completed: false }
       end
       it "updates a new to_do" do
-        # expect(to_do.title).to eq "Brand new title"
         expect(JSON.parse(response.body)).to include
           ({
             "title": "Brand new title",
