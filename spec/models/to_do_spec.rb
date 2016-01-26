@@ -8,6 +8,7 @@ RSpec.describe ToDo, type: :model do
       it "returns all fields other than timestamps" do
         expect(to_do.as_json).to include ({ title: "I have to do this thang" })
         expect(to_do.as_json).to include ({ is_completed: true })
+        expect(to_do.as_json).to_not include ("created_at")
       end
     end
 end
