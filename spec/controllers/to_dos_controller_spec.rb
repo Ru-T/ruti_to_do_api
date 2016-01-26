@@ -24,7 +24,7 @@ RSpec.describe ToDosController, type: :controller do
       end
       it "creates a new to_do" do
         expect(ToDo.last.title).to eq "New title"
-        expect(response).to include
+        expect(JSON.parse(response.body)).to include
           ({
             "title": "New title",
             "is_completed": true
@@ -38,7 +38,7 @@ RSpec.describe ToDosController, type: :controller do
       end
       it "updates a new to_do" do
         # expect(to_do.title).to eq "Brand new title"
-        expect(response).to include
+        expect(JSON.parse(response.body)).to include
           ({
             "title": "Brand new title",
             "is_completed": false
